@@ -1,4 +1,4 @@
-exports.songsdata = [
+export const songsdata = [
     {
         "title": "Drake - Forever",
         "url": "https://beardbarnmusicbucket.s3.amazonaws.com/The+Wild+Horse"
