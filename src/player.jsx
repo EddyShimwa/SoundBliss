@@ -1,4 +1,4 @@
-import './App.css';
+import './player.scss';
 import { useState, useRef, useEffect } from 'react';
 import {BsFillPlayCircleFill, BsFillPauseCircleFill, BsFillSkipStartCircleFill, BsSkipEndCircleFill, BsFillSkipEndCircleFill} from 'react-icons/bs';
 
@@ -16,7 +16,7 @@ const Player = ({audioElem, isplaying, setIsplaying, currentSong}) => {
       </div>
       <div className="navigation">
         <div className="navigation_wrapper" >
-          <div className="seek_bar" style={{width: '50%'}}></div>
+          <div className="seek_bar" style={{width: `${currentSong.progress+"%"}`}}></div>
         </div>
       </div>
       <div className="controls">

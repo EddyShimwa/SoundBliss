@@ -1,3 +1,4 @@
+
 .player_container
 {
     width: 50%;
@@ -9,12 +10,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.466);
 
     >*
     {
         padding: 1rem 0;
-        color: rgb(202, 202, 202);
+        color: rgb(215, 210, 210);
     }
 
     .title{
@@ -27,8 +28,8 @@
         .navigation_wrapper
         {
             min-width: 100%;
-            background-color: rgba(119, 119, 119, 0.781);
-            height: 5px;
+            background-color: rgba(119, 119, 119, 0.365);
+            height: 10px;
             border-radius: 30px;
             cursor: pointer;
             

@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import { useState, useRef, useEffect } from 'react';
 import { songsdata } from './audios';
 import Player from './player';
@@ -18,8 +18,16 @@ const App = () => {
          }
    }, [isplaying])
 
+   const onplaying = () => {
+
+    const duration =  audioElem.current.duration;
+    const ct = audioElem.current.currentTime;
+    setCurrentSong({...currentSong, "progress": ct/duration * 100, "length": duration})
+    
+}
+
     return <div className="App">
-        <audio src={currentSong.url} ref={audioElem}/>
+        <audio src={currentSong.url} ref={audioElem} onTimeUpdate={onplaying}/>
         <Player songs={songs} setsongs={setSongs} isplaying={isplaying} setIsplaying={setIsplaying} audioElem={audioElem} currentSong={currentSong} />
        </div>
 }
