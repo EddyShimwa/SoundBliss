@@ -1,7 +1,10 @@
 import './App.scss';
 import { useState, useRef, useEffect } from 'react';
+import { Provider } from 'react-redux';
 import { songsdata } from './audios';
 import Player from './player';
+import store from './Redux/configureStore';
+
 
 const App = () => {
    const [songs, setSongs] = useState(songsdata);
@@ -26,10 +29,14 @@ const App = () => {
     
 }
 
-    return <div className="App">
+    return (
+     <Provider store={store}> 
+       <div className="App">
         <audio src={currentSong.url} ref={audioElem} onTimeUpdate={onplaying}/>
-        <Player songs={songs} setsongs={setSongs} isplaying={isplaying} setIsplaying={setIsplaying} audioElem={audioElem} currentSong={currentSong} />
+         <Player songs={songs} setsongs={setSongs} isplaying={isplaying} setIsplaying={setIsplaying} audioElem={audioElem} currentSong={currentSong} />
        </div>
+     </Provider>
+    )
 }
 
 export default App;
