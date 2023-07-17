@@ -15,9 +15,7 @@
 
 <a name="readme-top"></a>
 
-
-<!-- TABLE OF CONTENTS -->
-
+]
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
@@ -86,9 +84,6 @@ In order to run this project you need:
 - Browser
 
 ### Setup
-
-
-> Clone this repository to your desired folder: cd [folder] to navigate and run the below comand to clone the project
 
 ```sh
 https://github.com/EddyShimwa/SoundBliss.git
