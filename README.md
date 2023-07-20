@@ -15,7 +15,6 @@
 
 <a name="readme-top"></a>
 
-]
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
@@ -47,7 +46,7 @@
 >React
 >Javascript
 >CSS
->Bootstrap
+>Tailwind CSS
 
 <!-- Features -->
 
