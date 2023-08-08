@@ -52,12 +52,15 @@ const App = () => {
            
            </Container>
            <Container>
+           <Row className="mx-2 row row-cols-4">
                <Card>
                     <Card.Img src="#" />
                     <Card.Body>
-                         
+                         <Card.Title>Album name</Card.Title>
                     </Card.Body>
                </Card>
+          </Row>
+         
            </Container>
        </div>
     );
