@@ -43,7 +43,7 @@ async function search() {
 
      // Get request using search to get the artist ID
 
-     
+       // Get request with artist ID grab all all albums from that aartist
 
 }
 
