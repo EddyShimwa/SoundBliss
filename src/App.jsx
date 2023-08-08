@@ -4,14 +4,21 @@ import { Provider } from 'react-redux';
 import { songsdata } from './audios';
 import Player from './player';
 import store from './Redux/configureStore';
-
+import Dropdown from './dropdown';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Container, InputGroup, FormControl, Button, Row, Card} from 'react-bootdtrapo'
 
 const App = () => {
-   const [songs, setSongs] = useState(songsdata);
-   const [isplaying, setIsplaying] = useState(false);
+   
+   const [searchInput, setSearchInput] = useState("");
    const [currentSong, setCurrentSong] = useState(songsdata[0]);
-
    const audioElem = useRef();
+
+   const data = [
+     {value: 1, name: 'A'},
+     {value: 2, name: 'B'},
+     {value: 3, name: 'C'}
+ ]
 
    useEffect(() => {
          if (isplaying) {
@@ -32,8 +39,22 @@ const App = () => {
     return (
      <Provider store={store}> 
        <div className="App">
-        <audio src={currentSong.url} ref={audioElem} onTimeUpdate={onplaying}/>
-         <Player songs={songs} setsongs={setSongs} isplaying={isplaying} setIsplaying={setIsplaying} audioElem={audioElem} currentSong={currentSong} />
+       
+        <Container>
+           <InputGroup>
+             <FormControl 
+                placeholder= "Search for artist"
+                type = "input"
+                onKeyPress={event => {
+                    if(event.key == "Enter"){
+                         console.log("presssed enter");
+                    }
+                }}
+                onChange = 
+             />
+           </InputGroup>
+        </Container>
+         <Dropdown options={data}/>
        </div>
      </Provider>
     )
