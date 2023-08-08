@@ -45,6 +45,7 @@ async function search() {
 
        // Get request with artist ID grab all all albums from that aartist
 
+       //display those albums to the user
 }
 
     return (
