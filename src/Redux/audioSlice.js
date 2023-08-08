@@ -1,60 +1,37 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
 
-export const fetchRides = createAsyncThunk(
-  "rides/fetchRides",
-  async (_, { rejectWithValue }) => {
-    try {
-      const response = await axios.get("", {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      });
-
-
-      if (response.status !== 200) {
-        throw new Error(response.data.error);
-      }
-
-      return { rides: response.data };
-    } catch (error) {
-      return rejectWithValue({ error: error.response.error });
-    }
-  }
-);
-
-const initialState = {
-  loading: false,
-  error: null,
-  rides: [],
+export const setSongs = (state, action) => {
+  state.messages = action.payload;
 };
 
-const ridesSlice = createSlice({
-  name: "rides",
-  initialState: initialState,
+export const fetchSongs = () => async (dispatch) => {
+  const response = await axios.get('http://localhost:3001/api/v1/messages/index');
+  dispatch(setSongs(response.data));
+};
 
-  reducers: {},
+const messagesSlice = createSlice({
+  name: 'messages',
+  initialState: {
+    messages: [],
+    loading: false,
+    error: null,
+  },
+  reducers: {
+    setSongs,
+    setLoading: (state) => {
+      state.loading = true;
+    },
 
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchRides.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(fetchRides.fulfilled, (state, { payload }) => {
-        state.loading = false;
-        state.rides = payload.rides;
-      })
-      .addCase(fetchRides.rejected, (state, { payload }) => {
-        state.loading = false;
-        state.error = payload.error;
-      });
+    setError: (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
   },
 });
 
-export default ridesSlice.reducer;
+// export const { setLoading, setError } = messagesSlice.actions;
 
-export const selectRidesLoading = (state) => state.rides.loading;
-export const selectRidesError = (state) => state.rides.error;
-export const selectRides = (state) => state.rides.rides;
+// export const selectMessages = (state) => state.messages.messages;
+
+// export default messagesSlice.reducer;
