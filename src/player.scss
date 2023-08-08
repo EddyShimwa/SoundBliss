@@ -67,3 +67,15 @@
         
     }
 }
+
+
+@media (max-width: 768px) {
+    .player_container{
+        width: 80%;
+        height: 25vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-position-x: center;
+    }
+  }
