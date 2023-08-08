@@ -6,13 +6,13 @@ import Player from './player';
 import store from './Redux/configureStore';
 import Dropdown from './dropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Container, InputGroup, FormControl, Button, Row, Card} from 'react-bootdtrapo'
+import {Container, InputGroup, FormControl, Button, Row, Card} from 'react-bootstrap'
 
 const App = () => {
    
    const [searchInput, setSearchInput] = useState("");
-   const [currentSong, setCurrentSong] = useState(songsdata[0]);
-   const audioElem = useRef();
+//    const [currentSong, setCurrentSong] = useState(songsdata[0]);
+//    const audioElem = useRef();
 
    const data = [
      {value: 1, name: 'A'},
@@ -20,24 +20,17 @@ const App = () => {
      {value: 3, name: 'C'}
  ]
 
-   useEffect(() => {
-         if (isplaying) {
-              audioElem.current.play();
-         } else {
-              audioElem.current.pause();
-         }
-   }, [isplaying])
+//    useEffect(() => {
+//          if (isplaying) {
+//               audioElem.current.play();
+//          } else {
+//               audioElem.current.pause();
+//          }
+//    }, [isplaying])
+   
 
-   const onplaying = () => {
-
-    const duration =  audioElem.current.duration;
-    const ct = audioElem.current.currentTime;
-    setCurrentSong({...currentSong, "progress": ct/duration * 100, "length": duration})
-    
-}
 
     return (
-     <Provider store={store}> 
        <div className="App">
        
         <Container>
@@ -47,17 +40,27 @@ const App = () => {
                 type = "input"
                 onKeyPress={event => {
                     if(event.key == "Enter"){
-                         console.log("presssed enter");
+                         console.log("pressed enter");
                     }
                 }}
-                onChange = 
+                onChange = {event => setSearchInput(event.target.value)}
              />
+               <Button onClick={() => console.log("clicked button")}>
+                    Search
+               </Button>
            </InputGroup>
-        </Container>
-         <Dropdown options={data}/>
+           
+           </Container>
+           <Container>
+               <Card>
+                    <Card.Img src="#" />
+                    <Card.Body>
+                         
+                    </Card.Body>
+               </Card>
+           </Container>
        </div>
-     </Provider>
-    )
-}
+    );
+ }
 
 export default App;
