@@ -40,7 +40,11 @@ const App = () => {
    
 async function search() {
      console.log("searching for " + searchInput)
+
+     // Get request using search to get the artist ID
+
      
+
 }
 
     return (
