@@ -2,15 +2,19 @@ import './App.scss';
 import { useState, useRef, useEffect } from 'react';
 import { Provider } from 'react-redux';
 import { songsdata } from './audios';
-import Player from './player';
-import store from './Redux/configureStore';
-import Dropdown from './dropdown';
+// import Player from './player';
+// import store from './Redux/configureStore';
+// import Dropdown from './dropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container, InputGroup, FormControl, Button, Row, Card} from 'react-bootstrap'
+
+const CLIENT_ID = "a131e571b4b24202a083d7883e1245ca";
+const CLIENT_SECRET = "53b760fc65434940b3285a2e27bda784" ;
 
 const App = () => {
    
    const [searchInput, setSearchInput] = useState("");
+   const [accessToken, setAccessToken] = useState("")
 //    const [currentSong, setCurrentSong] = useState(songsdata[0]);
 //    const audioElem = useRef();
 
@@ -20,15 +24,24 @@ const App = () => {
      {value: 3, name: 'C'}
  ]
 
-//    useEffect(() => {
-//          if (isplaying) {
-//               audioElem.current.play();
-//          } else {
-//               audioElem.current.pause();
-//          }
-//    }, [isplaying])
-   
+   useEffect(() => {
+     var authParamaters = {
+          method: 'POST',
+          headers: {
+               'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body: 'grant_type=client_credentials&client_id=' + CLIENT_ID + '&client_secret=' + CLIENT_SECRET
+     }
 
+      fetch('https://accounts.spotify.com/api/token', authParamaters)
+      .then(result => result.json())
+      .then(data => setAccessToken(data.access_token))
+   }, [])
+   
+async function search() {
+     console.log("searching for " + searchInput)
+     
+}
 
     return (
        <div className="App">
@@ -40,6 +53,7 @@ const App = () => {
                 type = "input"
                 onKeyPress={event => {
                     if(event.key == "Enter"){
+                         search()
                          console.log("pressed enter");
                     }
                 }}
