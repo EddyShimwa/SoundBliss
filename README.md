@@ -15,9 +15,6 @@
 
 <a name="readme-top"></a>
 
-
-<!-- TABLE OF CONTENTS -->
-
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
@@ -49,7 +46,7 @@
 >React
 >Javascript
 >CSS
->Bootstrap
+>Tailwind CSS
 
 <!-- Features -->
 
@@ -63,15 +60,11 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LIVE DEMO -->
-
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 > Add a link to your deployed project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
@@ -86,9 +79,6 @@ In order to run this project you need:
 - Browser
 
 ### Setup
-
-
-> Clone this repository to your desired folder: cd [folder] to navigate and run the below comand to clone the project
 
 ```sh
 https://github.com/EddyShimwa/SoundBliss.git
@@ -109,7 +99,6 @@ To download the dev dependency you have to type this command:
 ```sh
 npm i --save-dev
 ```
-
 ### Usage
 
 > To see the project in your local browser first of all, go to project file and navigate the directory on your terminal and type below command:
@@ -134,14 +123,9 @@ npm run dev
 - LinkedIn: [Pray Eddy SHIMWA](https://www.linkedin.com/in/eddy-pray-shimwa/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FUTURE FEATURES -->
-
 ## 🔭 Future Features <a name="future-features"></a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- CONTRIBUTING -->
 
 ## 🤝 Contributing <a name="contributing"></a>
 

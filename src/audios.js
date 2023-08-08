@@ -9,6 +9,6 @@ export const songsdata = [
     },
     {
         "title": "Travis Scott - Stop trina be God",
-        "url": "https://beardbarnmusicbucket.s3.amazonaws.com/The+Wild+Horse"
+        "url": "https://beardbarnmusicbucket.s3.amazonaws.com/The+Wild+pads"
     }
 ]
