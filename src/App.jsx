@@ -45,7 +45,8 @@ async function search() {
   var artistParameters = {
      method: 'Get',
      headers: {
-          content
+          'content-Type': 'application/json',
+          'Authorization': 'Bearer ' + accessToken
      }
   }
      var artisId = await fetch('https://api.spotify.com/v1/search')
