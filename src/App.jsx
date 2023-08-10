@@ -57,7 +57,7 @@ async function search() {
        console.log("artist Id is " + artistId)
        // Get request with artist ID grab all all albums from that aartist
 
-       var returnedAlbums = await fetch('https://api.spotify.com/v1/artists/' + artistId + '/albums' + '?include_groups=album&market=US&limit') 
+       var returnedAlbums = await fetch('https://api.spotify.com/v1/artists/' + artistId + '/albums' + '?include_groups=album&market=US&limit=50') 
        .then(response => response.json())
        .then(data => {
           console.log(data);
@@ -90,6 +90,7 @@ console.log(albums)
            </Container>
            <Container>
            <Row className="mx-2 row row-cols-4">
+               {albums.map((album, i))}
                <Card>
                     <Card.Img src="#" />
                     <Card.Body>
