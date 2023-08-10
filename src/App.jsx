@@ -49,7 +49,8 @@ async function search() {
           'Authorization': 'Bearer ' + accessToken
      }
   }
-     var artisId = await fetch('https://api.spotify.com/v1/search')
+     var artisId = await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=artist', artistParameters)
+     .then(res)
        // Get request with artist ID grab all all albums from that aartist
 
        //display those albums to the user
