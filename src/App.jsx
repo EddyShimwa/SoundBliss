@@ -45,12 +45,13 @@ async function search() {
   var artistParameters = {
      method: 'Get',
      headers: {
-          'content-Type': 'application/json',
+          'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + accessToken
      }
   }
      var artisId = await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=artist', artistParameters)
-     .then(res)
+     .then(response => response.json())
+     .then(data => console.log(data))
        // Get request with artist ID grab all all albums from that aartist
 
        //display those albums to the user
