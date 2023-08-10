@@ -15,7 +15,7 @@ const App = () => {
    
    const [searchInput, setSearchInput] = useState("");
    const [accessToken, setAccessToken] = useState("")
-//    const [currentSong, setCurrentSong] = useState(songsdata[0]);
+   const [albums, setAlbums] = useState([]);
 //    const audioElem = useRef();
 
    const data = [
@@ -48,19 +48,24 @@ async function search() {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + accessToken
      }
-  }
-     var artisId = await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=artist', artistParameters)
+   }
+     var artistId = await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=artist', artistParameters)
      .then(response => response.json())
      .then(data => { return data.artists.items[0].id })
 
 
-       console.log("artist Id is " + artisId)
+       console.log("artist Id is " + artistId)
        // Get request with artist ID grab all all albums from that aartist
 
-       var albums = await fetch('https://api.spotify.com/v1/artists/' + artistId + '/albums') 
+       var returnedAlbums = await fetch('https://api.spotify.com/v1/artists/' + artistId + '/albums' + '?include_groups=album&market=US&limit') 
+       .then(response => response.json())
+       .then(data => {
+          console.log(data);
+          setAlbums(data.items)
+       });
        //display those albums to the user
 }
-
+console.log(albums)
     return (
        <div className="App">
        
