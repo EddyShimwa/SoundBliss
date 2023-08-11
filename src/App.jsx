@@ -1,10 +1,5 @@
 import './App.scss';
 import { useState, useRef, useEffect } from 'react';
-import { Provider } from 'react-redux';
-import { songsdata } from './audios';
-// import Player from './player';
-// import store from './Redux/configureStore';
-// import Dropdown from './dropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container, InputGroup, FormControl, Button, Row, Card} from 'react-bootstrap'
 
@@ -56,7 +51,6 @@ async function search() {
 
        console.log("artist Id is " + artistId)
        // Get request with artist ID grab all all albums from that aartist
-
        var returnedAlbums = await fetch('https://api.spotify.com/v1/artists/' + artistId + '/albums' + '?include_groups=album&market=US&limit=50', searchParameters) 
        .then(response => response.json())
        .then(data => {
