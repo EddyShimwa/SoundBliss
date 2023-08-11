@@ -42,14 +42,14 @@ async function search() {
      console.log("searching for " + searchInput)
 
      // Get request using search to get the artist ID
-  var artistParameters = {
+  var searchParameters = {
      method: 'Get',
      headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + accessToken
      }
    }
-     var artistId = await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=artist', artistParameters)
+     var artistId = await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=artist', searchParameters)
      .then(response => response.json())
      .then(data => { return data.artists.items[0].id })
 
@@ -57,7 +57,7 @@ async function search() {
        console.log("artist Id is " + artistId)
        // Get request with artist ID grab all all albums from that aartist
 
-       var returnedAlbums = await fetch('https://api.spotify.com/v1/artists/' + artistId + '/albums' + '?include_groups=album&market=US&limit=50') 
+       var returnedAlbums = await fetch('https://api.spotify.com/v1/artists/' + artistId + '/albums' + '?include_groups=album&market=US&limit=50', searchParameters) 
        .then(response => response.json())
        .then(data => {
           console.log(data);
@@ -90,13 +90,16 @@ console.log(albums)
            </Container>
            <Container>
            <Row className="mx-2 row row-cols-4">
-               {albums.map((album, i))}
+               {albums.map((album, i) => {
+               return (
                <Card>
-                    <Card.Img src="#" />
-                    <Card.Body>
-                         <Card.Title>Album name</Card.Title>
-                    </Card.Body>
-               </Card>
+              <Card.Img src={album.images[0].url} />
+               <Card.Body>
+              <Card.Title>{album.name}</Card.Title>
+         </Card.Body>
+      </Card>
+)
+     })}
           </Row>
          
            </Container>
