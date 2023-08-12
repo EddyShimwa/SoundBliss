@@ -11,13 +11,6 @@ const App = () => {
    const [searchInput, setSearchInput] = useState("");
    const [accessToken, setAccessToken] = useState("")
    const [albums, setAlbums] = useState([]);
-//    const audioElem = useRef();
-
-   const data = [
-     {value: 1, name: 'A'},
-     {value: 2, name: 'B'},
-     {value: 3, name: 'C'}
- ]
 
    useEffect(() => {
      var authParamaters = {
@@ -59,7 +52,7 @@ async function search() {
        });
        //display those albums to the user
 }
-console.log(albums)
+// console.log(albums)
     return (
        <div className="App">
        
