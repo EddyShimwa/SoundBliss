@@ -47,8 +47,6 @@ async function search() {
      .then(response => response.json())
      .then(data => { return data.artists.items[0].id })
 
-
-       console.log("artist Id is " + artistId)
        // Get request with artist ID grab all all albums from that aartist
        var returnedAlbums = await fetch('https://api.spotify.com/v1/artists/' + artistId + '/albums' + '?include_groups=album&market=US&limit=50', searchParameters) 
        .then(response => response.json())
@@ -56,12 +54,59 @@ async function search() {
           console.log(data);
           setAlbums(data.items)
        });
+
        setSuggestions([]);
        //display those albums to the user
 }
+  // Autosuggest input value
+  const [value, setValue] = useState('');
 
+  // Autosuggest input onChange handler
+  const onSuggestionsChange = (_, { newValue }) => {
+    setValue(newValue);
+  };
+    // Autosuggest input suggestion fetch function
+    const getSuggestions = async (value) => {
+      const artistSuggestions = await fetch(
+        'https://api.spotify.com/v1/search?q=' + value + '&type=artist',
+        searchParameters
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          return data.artists.items.map((artist) => artist.name);
+        });
+  
+      setSuggestions(artistSuggestions);
+    };
+  
+    // Autosuggest input onSuggestionsFetchRequested handler
+    const onSuggestionsFetchRequested = ({ value }) => {
+      getSuggestions(value);
+    };
+  
+    // Autosuggest input onSuggestionsClearRequested handler
+    const onSuggestionsClearRequested = () => {
+      setSuggestions([]);
+    };
+  
+    // Autosuggest input render suggestion
+    const renderSuggestion = (suggestion) => <div>{suggestion}</div>;
+  
+    // Autosuggest input inputProps
+    const inputProps = {
+      placeholder: 'Search for artist',
+      type: 'input',
+      value,
+      onChange: (_, { newValue }) => setValue(newValue),
+      onKeyPress: (event) => {
+        if (event.key === 'Enter') {
+          search();
+          console.log('pressed enter');
+        }
+      },
+    };
 
-// console.log(albums)
+  
     return (
        <div className="App">
        
