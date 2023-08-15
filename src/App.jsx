@@ -58,55 +58,8 @@ async function search() {
        setSuggestions([]);
        //display those albums to the user
 }
-  // Autosuggest input value
-  const [value, setValue] = useState('');
 
-  // Autosuggest input onChange handler
-  const onSuggestionsChange = (_, { newValue }) => {
-    setValue(newValue);
-  };
-    // Autosuggest input suggestion fetch function
-    const getSuggestions = async (value) => {
-      const artistSuggestions = await fetch(
-        'https://api.spotify.com/v1/search?q=' + value + '&type=artist',
-        searchParameters
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          return data.artists.items.map((artist) => artist.name);
-        });
-  
-      setSuggestions(artistSuggestions);
-    };
-  
-    // Autosuggest input onSuggestionsFetchRequested handler
-    const onSuggestionsFetchRequested = ({ value }) => {
-      getSuggestions(value);
-    };
-  
-    // Autosuggest input onSuggestionsClearRequested handler
-    const onSuggestionsClearRequested = () => {
-      setSuggestions([]);
-    };
-  
-    // Autosuggest input render suggestion
-    const renderSuggestion = (suggestion) => <div>{suggestion}</div>;
-  
-    // Autosuggest input inputProps
-    const inputProps = {
-      placeholder: 'Search for artist',
-      type: 'input',
-      value,
-      onChange: (_, { newValue }) => setValue(newValue),
-      onKeyPress: (event) => {
-        if (event.key === 'Enter') {
-          search();
-          console.log('pressed enter');
-        }
-      },
-    };
 
-  
     return (
        <div className="App">
        
