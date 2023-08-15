@@ -16,6 +16,9 @@
     background-image: url(./assets/pexels-daniel-reche-3721941.jpg);
     background-size: cover; 
 }
+.card {
+    
+}
 
 @media (max-width: 768px) {
     .App{

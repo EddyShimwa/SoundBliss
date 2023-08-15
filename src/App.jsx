@@ -1,9 +1,7 @@
-import './App.scss';
-import { useState, useRef, useEffect } from 'react';
+import './App.css';
+import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container, InputGroup, FormControl, Button, Row, Card} from 'react-bootstrap'
-import Autosuggest from 'react-autosuggest';
-
 
 const CLIENT_ID = "a131e571b4b24202a083d7883e1245ca";
 const CLIENT_SECRET = "53b760fc65434940b3285a2e27bda784" ;
@@ -13,11 +11,7 @@ const App = () => {
    const [searchInput, setSearchInput] = useState("");
    const [accessToken, setAccessToken] = useState("")
    const [albums, setAlbums] = useState([]);
-
-     // Autocomplete suggestions state
-  const [suggestions, setSuggestions] = useState([]);
-
-
+  
    useEffect(() => {
      var authParamaters = {
           method: 'POST',
@@ -59,10 +53,8 @@ async function search() {
        //display those albums to the user
 }
 
-
     return (
        <div className="App">
-       
         <Container>
            <InputGroup>
              <FormControl 
@@ -71,7 +63,7 @@ async function search() {
                 onKeyPress={event => {
                     if(event.key == "Enter"){
                          search()
-                         console.log("pressed enter");
+                        //  console.log("pressed enter");
                     }
                 }}
                 onChange = {event => setSearchInput(event.target.value)}
