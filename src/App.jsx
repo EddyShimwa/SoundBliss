@@ -1,7 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Container, InputGroup, FormControl, Button, Row, Card} from 'react-bootstrap'
+import {Container, InputGroup, FormControl, Button, Row} from 'react-bootstrap'
 
 const CLIENT_ID = "a131e571b4b24202a083d7883e1245ca";
 const CLIENT_SECRET = "53b760fc65434940b3285a2e27bda784" ;
@@ -48,9 +48,6 @@ async function search() {
           console.log(data);
           setAlbums(data.items)
        });
-
-       setSuggestions([]);
-       //display those albums to the user
 }
 
     return (
@@ -78,12 +75,10 @@ async function search() {
            <Row className="mx-2 row row-cols-4">
                {albums.map((album, i) => {
                return (
-               <Card>
-              <Card.Img src={album.images[0].url} />
-               <Card.Body>
-              <Card.Title>{album.name}</Card.Title>
-         </Card.Body>
-      </Card>
+               <div className='card'>
+                  <img src={album.images[0].url} />
+                  <h2>{album.name}</h2>
+                </div>
 )
      })}
           </Row>
