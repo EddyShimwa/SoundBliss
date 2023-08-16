@@ -1,7 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import {Container, InputGroup, FormControl, Button, Row} from 'react-bootstrap'
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 const CLIENT_ID = "a131e571b4b24202a083d7883e1245ca";
 const CLIENT_SECRET = "53b760fc65434940b3285a2e27bda784" ;
@@ -50,42 +49,42 @@ async function search() {
        });
 }
 
-    return (
-       <div className="App">
-        <Container>
-           <InputGroup>
-             <FormControl 
-                placeholder= "Search for artist"
-                type = "input"
-                onKeyPress={event => {
-                    if(event.key == "Enter"){
-                         search()
-                        //  console.log("pressed enter");
-                    }
-                }}
-                onChange = {event => setSearchInput(event.target.value)}
-             />
-               <Button onClick={() => console.log("clicked button")}>
-                    Search
-               </Button>
-           </InputGroup>
-           
-           </Container>
-           <Container>
-           <Row className="mx-2 row row-cols-4">
-               {albums.map((album, i) => {
-               return (
-               <div className='card'>
-                  <img src={album.images[0].url} />
-                  <h2>{album.name}</h2>
-                </div>
-)
-     })}
-          </Row>
-         
-           </Container>
-       </div>
-    );
+return (
+<div className="App">
+  <div className="container">
+    <div className="flex items-center justify-center mt-8">
+      <input
+        className="border rounded py-2 px-3 w-1/2"
+        placeholder="Search for artist"
+        type="input"
+        onKeyPress={event => {
+          if (event.key === "Enter") {
+            search();
+            // console.log("pressed enter");
+          }
+        }}
+        onChange={event => setSearchInput(event.target.value)}
+      />
+      <button className="bg-blue-500 text-white rounded py-2 px-3 ml-3" onClick={() => console.log("clicked button")}>
+        Search
+      </button>
+    </div>
+  </div>
+  <div className="container mt-8">
+    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      {albums.map((album, i) => {
+        return (
+          <div className="bg-white rounded shadow-md p-4" key={i}>
+            <img src={album.images[0].url} alt={album.name} className="w-full h-auto" />
+            <h2 className="text-lg font-semibold mt-2">{album.name}</h2>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</div>
+ );
+ 
  }
 
 export default App;
