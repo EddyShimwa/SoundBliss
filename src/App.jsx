@@ -74,7 +74,7 @@ return (
   <div className="container mt-28 flex justify-center">
   <div className="grid grid-cols-1 gap-4 w-80">
   {albums.length === 0 ? (
-    <p className="text-center text-red-600 font-semibold">Album not found</p>
+    <p className="text-center text-blue-600 font-semibold">Album not found</p>
   ) : (
     albums.map((album, i) => (
       <div className="bg-slate-200 rounded-lg shadow-md p-4" key={i}>
