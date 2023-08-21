@@ -70,17 +70,15 @@ return (
     </div>
   </div>
   <div className="container mt-8">
-  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-  {albums.map((album, i) => {
-    return (
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-80">
+    {albums.map((album, i) => (
       <div className="bg-white rounded shadow-md p-4" key={i}>
-        <img src={album.images[0].url} alt={album.name} className="w-full h-auto" />
+        <img src={album.images[0].url} alt={album.name} className="w-80 h-auto" />
         <h2 className="text-lg font-semibold mt-2">{album.name}</h2>
       </div>
-    );
-  })}
-</div>
+    ))}
   </div>
+</div>
 </div>
  );
  
