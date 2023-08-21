@@ -1,6 +1,6 @@
-import './App.css';
+import './App.css'
 import { useState, useEffect } from 'react';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const CLIENT_ID = "a131e571b4b24202a083d7883e1245ca";
 const CLIENT_SECRET = "53b760fc65434940b3285a2e27bda784" ;
@@ -60,7 +60,6 @@ return (
         onKeyPress={event => {
           if (event.key === "Enter") {
             search();
-            // console.log("pressed enter");
           }
         }}
         onChange={event => setSearchInput(event.target.value)}
@@ -71,16 +70,16 @@ return (
     </div>
   </div>
   <div className="container mt-8">
-    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      {albums.map((album, i) => {
-        return (
-          <div className="bg-white rounded shadow-md p-4" key={i}>
-            <img src={album.images[0].url} alt={album.name} className="w-full h-auto" />
-            <h2 className="text-lg font-semibold mt-2">{album.name}</h2>
-          </div>
-        );
-      })}
-    </div>
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+  {albums.map((album, i) => {
+    return (
+      <div className="bg-white rounded shadow-md p-4" key={i}>
+        <img src={album.images[0].url} alt={album.name} className="w-full h-auto" />
+        <h2 className="text-lg font-semibold mt-2">{album.name}</h2>
+      </div>
+    );
+  })}
+</div>
   </div>
 </div>
  );

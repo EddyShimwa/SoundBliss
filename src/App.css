@@ -20,12 +20,11 @@
     background-image: url(./assets/pexels-daniel-reche-3721941.jpg);
     background-size: cover; 
 }
-.card {
+
    
-}
 
 @media (max-width: 768px) {
-    .App{
+    /* .App{
         width: 100%;
         height: 100vh;
         display: block;
@@ -33,7 +32,7 @@
         align-items: center;
         background-image: url(./assets/pexels-daniel-reche-3721941.jpg);
         background-position-x: center;
-    }
+    } */
   }
 
 
