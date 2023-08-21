@@ -52,7 +52,7 @@ async function search() {
 return (
 <div className="App">
   <div className="container">
-    <div className="flex justify-center ">
+    <div className="flex justify-center">
       <input
         className="border rounded py-2 px-3 w-1/1 mt-10"
         placeholder="Search for artist"
@@ -72,9 +72,9 @@ return (
   <div className="container mt-8 flex justify-center">
   <div className="grid grid-cols-1 gap-4 w-80 ">
     {albums.map((album, i) => (
-      <div className="bg-white rounded shadow-md p-4" key={i}>
+      <div className="bg-slate-200 rounded-lg shadow-md p-4" key={i}>
         <img src={album.images[0].url} alt={album.name} className="w-80 h-auto" />
-        <h2 className="text-lg font-semibold mt-2">{album.name}</h2>
+        <h2 className="text-lg font-semibold mt-2 text-center text-gray-700">{album.name}</h2>
       </div>
     ))}
   </div>
