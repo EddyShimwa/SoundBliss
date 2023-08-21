@@ -22,6 +22,14 @@
         background-attachment: fixed;
         background-position: center center;
  }
+
+ .header {
+   border: 1px solid rgb(115, 112, 112);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   
+ }
   
 
 

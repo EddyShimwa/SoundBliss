@@ -1,7 +1,6 @@
 import './App.css'
 import { useState, useEffect } from 'react';
 
-
 const CLIENT_ID = "a131e571b4b24202a083d7883e1245ca";
 const CLIENT_SECRET = "53b760fc65434940b3285a2e27bda784" ;
 
@@ -52,7 +51,8 @@ async function search() {
 return (
 <div className="App">
   <div className="container">
-    <div className="flex justify-center">
+    <div className='header'>
+        <div className="flex justify-center">
       <input
         className="border rounded py-2 px-3 w-1/1 mt-10"
         placeholder="Search for artist"
@@ -67,8 +67,10 @@ return (
       <button className="bg-gray-700 text-white rounded py-2 px-3 ml-3 mt-10" onClick={() => console.log("clicked button")}>
         Search
       </button>
+        </div>
     </div>
   </div>
+  
   <div className="container mt-8 flex justify-center">
   <div className="grid grid-cols-1 gap-4 w-80 ">
     {albums.map((album, i) => (
