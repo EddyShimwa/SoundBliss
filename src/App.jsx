@@ -52,9 +52,9 @@ async function search() {
 return (
 <div className="App">
   <div className="container">
-    <div className="flex items-center justify-center mt-8">
+    <div className="flex justify-center ">
       <input
-        className="border rounded py-2 px-3 w-1/2"
+        className="border rounded py-2 px-3 w-1/1 mt-10"
         placeholder="Search for artist"
         type="input"
         onKeyPress={event => {
@@ -64,7 +64,7 @@ return (
         }}
         onChange={event => setSearchInput(event.target.value)}
       />
-      <button className="bg-blue-500 text-white rounded py-2 px-3 ml-3" onClick={() => console.log("clicked button")}>
+      <button className="bg-gray-700 text-white rounded py-2 px-3 ml-3 mt-10" onClick={() => console.log("clicked button")}>
         Search
       </button>
     </div>
