@@ -50,7 +50,7 @@ async function search() {
 
 return (
 <div className="App">
-  <div className="container flex justify-center">
+  <div className="container flex justify-center ">
     <div className="header">
         <div className="flex justify-center">
       <input
@@ -71,7 +71,7 @@ return (
     </div>
   </div>
   
-  <div className="container mt-8 flex justify-center">
+  <div className="container mt-28 flex justify-center">
   <div className="grid grid-cols-1 gap-4 w-80 ">
     {albums.map((album, i) => (
       <div className="bg-slate-200 rounded-lg shadow-md p-4" key={i}>

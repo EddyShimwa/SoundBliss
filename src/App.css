@@ -24,11 +24,12 @@
  }
 
  .header {
-    border: 1px solid rgb(19, 18, 18);
-   background-color: rgba(128, 128, 128, 0.835);
+    border: 1px solid rgba(19, 18, 18, 0.192);
+   background-color: rgba(210, 210, 210, 0.835);
    display: flex;
    position: fixed;
    z-index: 10;
+   border-radius: 5px ;
  }
   
 
