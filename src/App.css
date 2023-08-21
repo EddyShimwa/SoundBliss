@@ -25,7 +25,7 @@
 
  .header {
     border: 1px solid rgba(19, 18, 18, 0.192);
-   background-color: rgba(210, 210, 210, 0.835);
+   background-color: rgba(86, 86, 86, 0.084);
    display: flex;
    position: fixed;
    z-index: 10;
