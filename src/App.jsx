@@ -50,8 +50,8 @@ async function search() {
 
 return (
 <div className="App">
-  <div className="container">
-    <div className='header'>
+  <div className="container flex justify-center">
+    <div className="header">
         <div className="flex justify-center">
       <input
         className="border rounded py-2 px-3 w-1/1 mt-10"

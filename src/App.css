@@ -24,11 +24,11 @@
  }
 
  .header {
-   border: 1px solid rgb(115, 112, 112);
+    border: 1px solid rgb(19, 18, 18);
+   background-color: rgba(128, 128, 128, 0.835);
    display: flex;
-   align-items: center;
-   justify-content: center;
-   
+   position: fixed;
+   z-index: 10;
  }
   
 
