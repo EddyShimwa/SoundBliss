@@ -50,6 +50,25 @@ async function search() {
 
        });
 }
+async function fetchSongsForAlbum(albumId) {
+  const searchParameters = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + accessToken,
+    },
+  };
+
+  try {
+    const albumSongsResponse = await fetch(`https://api.spotify.com/v1/albums/${albumId}/tracks`, searchParameters);
+    const albumSongsData = await albumSongsResponse.json();
+
+    // Do something with the album songs data, such as displaying them
+    console.log('Album Songs:', albumSongsData.items);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
 
 return (
 <div className="App">
@@ -80,7 +99,7 @@ return (
     <p className="text-center text-blue-600 font-semibold">Album not found</p>
   ) : (
     albums.map((album, i) => (
-      <div className="bg-slate-200 rounded-lg shadow-md p-4" key={i}>
+      <div className="bg-slate-200 rounded-lg shadow-md p-4" key={i}  onClick={() => fetchSongsForAlbum(album.id)}>
         <img src={album.images[0].url} alt={album.name} className="w-80 h-auto" />
         <h2 className="text-lg font-semibold mt-2 text-center text-gray-700">{album.name}</h2>
       </div>
