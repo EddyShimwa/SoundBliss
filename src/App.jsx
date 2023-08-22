@@ -85,7 +85,6 @@ const App = () => {
   }
 
   return (
-    <Router>
       <div className="App">
         <div className="container flex justify-center ">
           <div className="header">
@@ -127,11 +126,10 @@ const App = () => {
           </div>
         </div>
         <Routes>
-          <Route path="/" element={<AlbumList albums={albums} onAlbumClick={handleAlbumClick} />} />
-          <Route path="/album/:albumId" element={<AlbumPage />} />
-        </Routes>
+     {/* <Route path="/" element={<AlbumList albums={albums} onAlbumClick={handleAlbumClick} />} /> */}
+      <Route path="/album/:albumId" element={<AlbumPage accessToken={accessToken} />} />
+      </Routes>
       </div>
-    </Router>
   );
 }
 
