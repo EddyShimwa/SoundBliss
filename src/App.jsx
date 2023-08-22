@@ -1,5 +1,6 @@
 import './App.css'
-import { useState, useEffect } from 'react';
+
+import  { useState, useEffect } from 'react';
 
 const CLIENT_ID = "a131e571b4b24202a083d7883e1245ca";
 const CLIENT_SECRET = "53b760fc65434940b3285a2e27bda784" ;
@@ -43,8 +44,10 @@ async function search() {
        var returnedAlbums = await fetch('https://api.spotify.com/v1/artists/' + artistId + '/albums' + '?include_groups=album&market=US&limit=50', searchParameters) 
        .then(response => response.json())
        .then(data => {
+
           console.log(data);
           setAlbums(data.items)
+
        });
 }
 
