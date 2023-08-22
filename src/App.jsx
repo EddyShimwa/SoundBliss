@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import AlbumList from './AlbumList';
 import AlbumPage from './AlbumPage';
-
 import './App.css';
 
 const CLIENT_ID = "a131e571b4b24202a083d7883e1245ca";
@@ -126,7 +125,7 @@ const App = () => {
           </div>
         </div>
         <Routes>
-     {/* <Route path="/" element={<AlbumList albums={albums} onAlbumClick={handleAlbumClick} />} /> */}
+     <Route path="/" element={<AlbumList albums={albums} onAlbumClick={handleAlbumClick} />} />
       <Route path="/album/:albumId" element={<AlbumPage accessToken={accessToken} />} />
       </Routes>
       </div>
