@@ -1,6 +1,7 @@
 import './App.css'
 
 import  { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 const CLIENT_ID = "a131e571b4b24202a083d7883e1245ca";
 const CLIENT_SECRET = "53b760fc65434940b3285a2e27bda784" ;
@@ -71,6 +72,7 @@ async function fetchSongsForAlbum(albumId) {
 }
 
 return (
+  <Router>
 <div className="App">
   <div className="container flex justify-center ">
     <div className="header">
@@ -107,7 +109,14 @@ return (
   )}
 </div>
 </div>
+<Switch>
+          <Route path="/" exact>
+            <AlbumList albums={albums} onAlbumClick={fetchSongsForAlbum} />
+          </Route>
+          <Route path="/album/:albumId" component={AlbumPage} />
+        </Switch>
 </div>
+</Router>
  );
  
  }
