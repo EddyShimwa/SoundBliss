@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import AlbumList from './AlbumList';
-import AlbumPage from './AlbumPage';
+// import AlbumList from './AlbumList';
+// import AlbumPage from './AlbumPage';
 import './App.css';
 
 const CLIENT_ID = "a131e571b4b24202a083d7883e1245ca";
