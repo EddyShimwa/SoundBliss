@@ -1,11 +1,7 @@
 <a name="readme-top"></a>
-
 <div align="center">
-
 <img src="https://user-images.githubusercontent.com/88631022/230097778-38b68457-0b03-45fa-8945-f8e91bc66490.jpg" alt="mylogo" style="width: 300px;">
-
   <br/>
-
   <h3><b>SoundBliss</b></h3>
 
 </div>
@@ -55,9 +51,6 @@
 
 - I used modern ES6
 - Reliable
-
-
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
@@ -84,8 +77,6 @@ https://github.com/EddyShimwa/SoundBliss.git
 ### Install
 
 Install this project with:
-
-- download npm the packages
 
 ```sh
 npm install
